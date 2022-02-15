@@ -5,6 +5,6 @@ class PhoneNumber
 {
   char digits[12];
 public:
-  bool setDigits(std::string);
-  std::string getDigits();
+  bool set(const std::string &strDigits);
+  std::string get();
 };

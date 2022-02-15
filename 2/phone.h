@@ -1,10 +1,10 @@
 #pragma once
-#include "contacts.h"
+#include "contact.h"
 #include <vector>
 
 class Phone
 {
-  std::vector<Contacts> contacts;
+  std::vector<Contact> contacts;
 public:
   void add();
   void call();
