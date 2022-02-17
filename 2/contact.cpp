@@ -13,3 +13,13 @@ void Contact::get(std::string &getName, std::string &getNumber)
   getName = name;
   getNumber = number.get();
 }
+
+const PhoneNumber& Contact::getNumber() const
+{
+  return number;
+}
+
+bool Contact::compareName(const std::string cmpName) const
+{
+  return cmpName == name;
+}

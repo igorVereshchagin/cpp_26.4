@@ -9,4 +9,6 @@ class Contact
 public:
   bool set(const std::string &setName, const std::string &setNumber);
   void get(std::string &getName, std::string &getNumber);
+  const PhoneNumber& getNumber() const;
+  bool compareName(const std::string cmpName) const;
 };
