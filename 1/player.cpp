@@ -5,15 +5,21 @@
 
 void Player::init()
 {
-  tracks[0].setName("Track #1");
-  tracks[0].setDateOfCreation( {0, 30, 12, 3, 2, 100});
-  tracks[0].setLength(100);
-  tracks[1].setName("Track #2");
-  tracks[1].setDateOfCreation({12, 15, 11, 28, 6, 98});
-  tracks[1].setLength(123);
-  tracks[2].setName("Track #3");
-  tracks[2].setDateOfCreation({46, 56, 18, 15, 4, 99});
-  tracks[2].setLength(147);
+  Track *newTrack = new Track;
+  newTrack->setName("Track #1");
+  newTrack->setDateOfCreation( {0, 30, 12, 3, 2, 100});
+  newTrack->setLength(100);
+  tracks.push_back(newTrack);
+  newTrack = new Track;
+  newTrack->setName("Track #2");
+  newTrack->setDateOfCreation({12, 15, 11, 28, 6, 98});
+  newTrack->setLength(123);
+  tracks.push_back(newTrack);
+  newTrack = new Track;
+  newTrack->setName("Track #3");
+  newTrack->setDateOfCreation({46, 56, 18, 15, 4, 99});
+  newTrack->setLength(147);
+  tracks.push_back(newTrack);
 }
 void Player::play()
 {
@@ -28,11 +34,11 @@ void Player::play()
     std::cin >> std::ws;
     std::string name;
     std::getline(std::cin, name);
-    for (int i = 0; i < TRACK_COUNT; i++)
+    for (int i = 0; i < tracks.size(); i++)
     {
-      if (tracks[i].getName() == name)
+      if (tracks[i]->getName() == name)
       {
-        play(&tracks[i]);
+        play(tracks[i]);
         break;
       }
     }
@@ -62,7 +68,7 @@ void Player::pause()
 
 void Player::next()
 {
-  play(&tracks[std::rand() % TRACK_COUNT]);
+  play(tracks[std::rand() % tracks.size()]);
 }
 
 void Player::stop()

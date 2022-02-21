@@ -1,11 +1,10 @@
 #pragma once
 #include "track.h"
-
-#define TRACK_COUNT      3
+#include <vector>
 
 class Player
 {
-  Track tracks[TRACK_COUNT];
+  std::vector<Track*> tracks;
   Track *current = nullptr;
   bool paused = false;
   void play(Track *track);
