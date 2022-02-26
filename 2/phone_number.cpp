@@ -1,8 +1,10 @@
 #include "phone_number.h"
 
-std::string PhoneNumber::get()
+#define PHONE_STRING_SIZE     12
+
+const std::string& PhoneNumber::get()
 {
-  return std::string(digits);
+  return digits;
 }
 
 bool PhoneNumber::set(const std::string &strDigits)
@@ -12,8 +14,7 @@ bool PhoneNumber::set(const std::string &strDigits)
   for (int i = 2; i < PHONE_STRING_SIZE; i++)
     if (strDigits[i] < '0' || strDigits[i] > '9')
       return false;
-  strDigits.copy(digits, PHONE_STRING_SIZE);
-  digits[PHONE_STRING_SIZE] = 0;
+  digits = strDigits;
   return true;
 }
 
