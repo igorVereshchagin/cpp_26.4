@@ -5,12 +5,18 @@
 
 class Window
 {
-  int top = 0;
-  int left = 0;
-  int width = 1;
-  int height = 1;
+  int top = 10;
+  int left = 10;
+  int width = 30;
+  int height = 30;
 public:
   void move(const int &dx, const int &dy);
   void resize(const int &width, const int &height);
-  void display();
+  void get(int &outLeft, int &outTop, int &outWidth, int &outHeight)
+  {
+    outLeft = left;
+    outTop = top;
+    outWidth = width;
+    outHeight = height;
+  }
 };

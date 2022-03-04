@@ -1,10 +1,13 @@
 #include <iostream>
-#include "window.h"
+//#include "window.h"
+#include "Screen.h"
 #include <string>
 
 int main()
 {
-  Window *window = new Window();
+  Screen *screen = new Screen();
+  screen->setWindow(new Window());
+//  Window *window = new Window();
   std::string command;
   do
   {
@@ -17,21 +20,22 @@ int main()
       std::cout << "Input offset (dx, dy): " << std::endl;
       int dx, dy;
       std::cin >> dx >> dy;
-      window->move(dx, dy);
+      screen->moveWindow(dx, dy);
     }
     else if ("resize" == command)
     {
       std::cout << "Input new size (width, height): " << std::endl;
       int w, h;
       std::cin >> w >> h;
-      window->resize(w, h);
+      screen->resizeWindow(w, h);
     }
     else if (command == "display")
-      window->display();
+      screen->display();
     else
       std::cout << "Invalid command" << std::endl;
   }while(command != "close");
 
-  delete window;
+  screen->deleteWindow();
+  delete screen;
   return 0;
 }

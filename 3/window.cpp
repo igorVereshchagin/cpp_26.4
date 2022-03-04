@@ -18,31 +18,11 @@ void Window::move(const int &dx, const int &dy)
 
 void Window::resize(const int &newWidth, const int &newHeight)
 {
-  width = newWidth;
+  width = newWidth < 0;
   if ((left + width) > DISPLAY_WIDTH)
     width -= left + width - DISPLAY_WIDTH;
   height = newHeight;
   if ((top + height) > DISPLAY_HEIGHT)
     height -= top + height - DISPLAY_WIDTH;
   std::cout << "Window size: (" << width << ", " << height << ")" << std::endl;
-}
-
-void Window::display()
-{
-  for (int y = 0; y < DISPLAY_HEIGHT; y++)
-  {
-    if ((y < top) || (y >= (top + height)))
-      for (int x = 0; x < DISPLAY_WIDTH; x++)
-        std::cout << '0';
-    else
-    {
-      for (int x = 0; x < left; x++)
-        std::cout << '0';
-      for (int x = 0; x < width; x++)
-        std::cout << '1';
-      for (int x = 0; x < (DISPLAY_WIDTH - (left + width)); x++)
-        std::cout << '0';
-    }
-    std::cout << std::endl;
-  }
 }
