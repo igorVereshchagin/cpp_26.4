@@ -9,7 +9,6 @@ void Screen::display()
 {
   int top, left, width, height;
   window->get(left, top, width, height);
-  std::cout << top << " " << left << " " << width << " " << height << " " << this->width << " " << this->height << std::endl;
   for (int y = 0; y < this->height; y++)
   {
     if ((y < top) || (y >= (top + height)))
@@ -19,9 +18,9 @@ void Screen::display()
     {
       for (int x = 0; x < left; x++)
         std::cout << '0';
-      for (int x = 0; x < width; x++)
+      for (int x = left; x < this->width && x < (left + width); x++)
         std::cout << '1';
-      for (int x = 0; x < (this->width - (left + width)); x++)
+      for (int x = left + width; x < this->width; x++)
         std::cout << '0';
     }
     std::cout << std::endl;

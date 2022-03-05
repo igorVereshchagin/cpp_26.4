@@ -10,7 +10,7 @@ class Window
   int width = 30;
   int height = 30;
 public:
-  void move(const int &dx, const int &dy);
+  void move(const int &dx, const int &dy, const int &max_x, const int &max_y);
   void resize(const int &width, const int &height);
   void get(int &outLeft, int &outTop, int &outWidth, int &outHeight)
   {

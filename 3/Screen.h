@@ -14,11 +14,11 @@ public:
   {
     window = inWindow;
   }
-  void moveWindow(int dx, int dy)
+  void moveWindow(const int &dx, const int &dy)
   {
-    window->move(dx, dy);
+    window->move(dx, dy, width, height);
   }
-  void resizeWindow(int width, int height)
+  void resizeWindow(const int &width, const int &height)
   {
     window->resize(width, height);
   }

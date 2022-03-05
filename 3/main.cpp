@@ -7,7 +7,6 @@ int main()
 {
   Screen *screen = new Screen();
   screen->setWindow(new Window());
-//  Window *window = new Window();
   std::string command;
   do
   {
